@@ -1,17 +1,8 @@
-package com.ecommerce.entity;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package com.ecommerce.dto;
 
 
-@Entity
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CategoryResponse {
     private Long id;
-
     private String name;
 
     public Long getId() {
@@ -30,12 +21,17 @@ public class Category {
         this.name = name;
     }
 
-    public Category() {
+    public CategoryResponse(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public CategoryResponse() {
     }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "CategoryResponse{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
