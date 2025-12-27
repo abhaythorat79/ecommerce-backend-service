@@ -1,24 +1,12 @@
-package com.ecommerce.entity;
+package com.ecommerce.dto;
 
-import jakarta.persistence.*;
-
-
-@Entity
-
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductResponse {
     private Long id;
-
     private String name;
     private String description;
     private double price;
     private int stock;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private String categoryName;
 
     public Long getId() {
         return id;
@@ -60,35 +48,35 @@ public class Product {
         this.stock = stock;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public Product(Long id, String name, String description, double price, int stock, Category category) {
+    public ProductResponse(Long id, String name, String description, double price, int stock, String categoryName) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
-        this.category = category;
+        this.categoryName = categoryName;
     }
 
-    public Product() {
+    public ProductResponse() {
     }
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "ProductResponse{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", stock=" + stock +
-                ", category=" + category +
+                ", categoryName='" + categoryName + '\'' +
                 '}';
     }
 }

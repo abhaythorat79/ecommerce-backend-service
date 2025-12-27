@@ -1,32 +1,11 @@
-package com.ecommerce.entity;
+package com.ecommerce.dto;
 
-import jakarta.persistence.*;
-
-
-@Entity
-
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class ProductRequest {
     private String name;
     private String description;
     private double price;
     private int stock;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private Long categoryId;
 
     public String getName() {
         return name;
@@ -60,35 +39,33 @@ public class Product {
         this.stock = stock;
     }
 
-    public Category getCategory() {
-        return category;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public Product(Long id, String name, String description, double price, int stock, Category category) {
-        this.id = id;
+    public ProductRequest(String name, String description, double price, int stock, Long categoryId) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
-        this.category = category;
+        this.categoryId = categoryId;
     }
 
-    public Product() {
+    public ProductRequest() {
     }
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "ProductRequest{" +
+                "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", stock=" + stock +
-                ", category=" + category +
+                ", categoryId=" + categoryId +
                 '}';
     }
 }
