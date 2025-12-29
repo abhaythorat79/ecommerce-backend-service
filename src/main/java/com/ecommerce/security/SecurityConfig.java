@@ -26,8 +26,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
                 .authorizeHttpRequests(auth -> auth
+
                         //  PUBLIC ENDPOINTS
                         .requestMatchers(
                                 "/auth/**",
@@ -36,7 +38,19 @@ public class SecurityConfig {
                                 "/swagger-ui.html"
                         ).permitAll()
 
-                        //  SECURED ENDPOINTS
+                        //  ADMIN ONLY
+                        .requestMatchers(
+                                "/categories/**",
+                                "/products/**"
+                        ).hasRole("ADMIN")
+
+                        //  USER ONLY
+                        .requestMatchers(
+                                "/orders/**",
+                                "/payments/**"
+                        ).hasRole("USER")
+
+                        //  EVERYTHING ELSE
                         .anyRequest().authenticated()
                 );
 
@@ -44,6 +58,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(
