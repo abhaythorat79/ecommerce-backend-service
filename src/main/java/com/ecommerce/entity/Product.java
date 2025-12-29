@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 
-public class Product {
+public class Product extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
