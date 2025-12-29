@@ -3,6 +3,7 @@ package com.ecommerce.controller;
 import com.ecommerce.dto.CategoryRequest;
 import com.ecommerce.dto.CategoryResponse;
 import com.ecommerce.service.CategoryService;
+import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class CategoryController {
     // ADMIN only
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
-    public CategoryResponse create(@RequestBody CategoryRequest request) {
+    public CategoryResponse create( @Valid @RequestBody CategoryRequest request) {
         return categoryService.create(request);
     }
 

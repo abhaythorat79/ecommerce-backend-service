@@ -9,6 +9,7 @@ import com.ecommerce.entity.User;
 import com.ecommerce.repository.RoleRepository;
 import com.ecommerce.repository.UserRepository;
 import com.ecommerce.security.JwtUtil;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -42,7 +43,7 @@ public class AuthController {
 
     // 🔹 REGISTER API
     @PostMapping("/register")
-    public String register(@RequestBody RegisterRequest request) {
+    public String register( @Valid @RequestBody RegisterRequest request) {
 
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             return "User already exists";
@@ -69,7 +70,7 @@ public class AuthController {
 
     // 🔹 LOGIN API
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<?> login( @Valid @RequestBody LoginRequest request) {
 
         try {
             authenticationManager.authenticate(

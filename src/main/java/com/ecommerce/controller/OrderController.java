@@ -3,6 +3,7 @@ package com.ecommerce.controller;
 import com.ecommerce.dto.OrderRequest;
 import com.ecommerce.dto.OrderResponse;
 import com.ecommerce.service.OrderService;
+import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +22,7 @@ public class OrderController {
 
     @PreAuthorize("hasRole('USER')")
     @PostMapping
-    public OrderResponse placeOrder(@RequestBody OrderRequest request) {
+    public OrderResponse placeOrder( @Valid @RequestBody OrderRequest request) {
         return orderService.placeOrder(request);
     }
 }
