@@ -19,10 +19,4 @@ public class AuthResponse {
     public AuthResponse() {
     }
 
-    @Override
-    public String toString() {
-        return "AuthResponse{" +
-                "token='" + token + '\'' +
-                '}';
-    }
 }

@@ -29,11 +29,4 @@ public class CategoryResponse {
     public CategoryResponse() {
     }
 
-    @Override
-    public String toString() {
-        return "CategoryResponse{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

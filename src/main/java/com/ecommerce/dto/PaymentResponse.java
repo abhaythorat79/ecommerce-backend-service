@@ -37,13 +37,4 @@ public class PaymentResponse {
 
     public PaymentResponse() {
     }
-
-    @Override
-    public String toString() {
-        return "PaymentResponse{" +
-                "paymentId=" + paymentId +
-                ", status='" + status + '\'' +
-                ", message='" + message + '\'' +
-                '}';
-    }
 }

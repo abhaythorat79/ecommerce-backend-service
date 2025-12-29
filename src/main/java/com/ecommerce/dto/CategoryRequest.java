@@ -18,12 +18,4 @@ public class CategoryRequest {
 
     public CategoryRequest() {
     }
-
-    @Override
-    public String toString() {
-        return "CategoryRequest{" +
-                "name='" + name + '\'' +
-                '}';
-    }
-
 }

@@ -27,12 +27,4 @@ public class OrderItemRequest {
 
     public OrderItemRequest() {
     }
-
-    @Override
-    public String toString() {
-        return "OrderItemRequest{" +
-                "productId=" + productId +
-                ", quantity=" + quantity +
-                '}';
-    }
 }

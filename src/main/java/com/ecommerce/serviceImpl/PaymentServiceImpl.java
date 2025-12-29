@@ -6,6 +6,7 @@ import com.ecommerce.entity.Order;
 import com.ecommerce.entity.Payment;
 import com.ecommerce.enums.OrderStatus;
 import com.ecommerce.enums.PaymentStatus;
+import com.ecommerce.exception.ResourceNotFoundException;
 import com.ecommerce.repository.OrderRepository;
 import com.ecommerce.repository.PaymentRepository;
 import com.ecommerce.service.PaymentService;
@@ -27,7 +28,7 @@ public class PaymentServiceImpl implements PaymentService {
     public PaymentResponse makePayment(PaymentRequest request) {
 
         Order order = orderRepository.findById(request.getOrderId())
-                .orElseThrow(() -> new RuntimeException("Order not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found"));
 
         // Mock payment success
         Payment payment = new Payment();

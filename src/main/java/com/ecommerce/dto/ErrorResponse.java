@@ -1,11 +1,21 @@
 package com.ecommerce.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import java.time.LocalDateTime;
 
 public class ErrorResponse {
+
     private String message;
     private int status;
+    private LocalDateTime timestamp;
+
+    public ErrorResponse(String message, int status) {
+        this.message = message;
+        this.status = status;
+        this.timestamp = LocalDateTime.now();
+    }
+
+    public ErrorResponse() {
+    }
 
     public String getMessage() {
         return message;
@@ -23,19 +33,12 @@ public class ErrorResponse {
         this.status = status;
     }
 
-    public ErrorResponse() {
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 
-    public ErrorResponse(String message, int status) {
-        this.message = message;
-        this.status = status;
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 
-    @Override
-    public String toString() {
-        return "ErrorResponse{" +
-                "message='" + message + '\'' +
-                ", status=" + status +
-                '}';
-    }
 }

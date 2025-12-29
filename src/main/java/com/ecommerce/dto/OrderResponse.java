@@ -49,14 +49,4 @@ public class OrderResponse {
 
     public OrderResponse() {
     }
-
-    @Override
-    public String toString() {
-        return "OrderResponse{" +
-                "orderId=" + orderId +
-                ", totalAmount=" + totalAmount +
-                ", status='" + status + '\'' +
-                ", products=" + products +
-                '}';
-    }
 }

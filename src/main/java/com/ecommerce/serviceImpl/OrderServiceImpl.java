@@ -8,6 +8,7 @@ import com.ecommerce.entity.OrderItem;
 import com.ecommerce.entity.Product;
 import com.ecommerce.entity.User;
 import com.ecommerce.enums.OrderStatus;
+import com.ecommerce.exception.ResourceNotFoundException;
 import com.ecommerce.repository.OrderRepository;
 import com.ecommerce.repository.ProductRepository;
 import com.ecommerce.repository.UserRepository;
@@ -47,7 +48,7 @@ public class OrderServiceImpl implements OrderService {
 
         for (OrderItemRequest itemReq : request.getItems()) {
             Product product = productRepository.findById(itemReq.getProductId())
-                    .orElseThrow(() -> new RuntimeException("Product not found"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
 
             OrderItem item = new OrderItem();
             item.setProduct(product);

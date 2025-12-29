@@ -20,11 +20,5 @@ public class OrderRequest {
     public OrderRequest() {
     }
 
-    @Override
-    public String toString() {
-        return "OrderRequest{" +
-                "items=" + items +
-                '}';
-    }
 }
 

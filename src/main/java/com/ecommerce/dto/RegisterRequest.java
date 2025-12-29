@@ -40,15 +40,6 @@ public class RegisterRequest {
 
     public RegisterRequest() {
     }
-
-    @Override
-    public String toString() {
-        return "RegisterRequest{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }
 
 

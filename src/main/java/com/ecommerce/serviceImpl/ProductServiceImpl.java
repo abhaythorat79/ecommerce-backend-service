@@ -4,6 +4,7 @@ import com.ecommerce.dto.ProductRequest;
 import com.ecommerce.dto.ProductResponse;
 import com.ecommerce.entity.Category;
 import com.ecommerce.entity.Product;
+import com.ecommerce.exception.ResourceNotFoundException;
 import com.ecommerce.repository.CategoryRepository;
 import com.ecommerce.repository.ProductRepository;
 import com.ecommerce.service.ProductService;
@@ -27,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponse create(ProductRequest request) {
         Category category = categoryRepository.findById(request.getCategoryId())
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
 
         Product product = new Product();
         product.setName(request.getName());

@@ -57,15 +57,4 @@ public class ProductRequest {
 
     public ProductRequest() {
     }
-
-    @Override
-    public String toString() {
-        return "ProductRequest{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", stock=" + stock +
-                ", categoryId=" + categoryId +
-                '}';
-    }
 }

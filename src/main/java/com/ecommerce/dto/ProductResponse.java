@@ -67,16 +67,4 @@ public class ProductResponse {
 
     public ProductResponse() {
     }
-
-    @Override
-    public String toString() {
-        return "ProductResponse{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", stock=" + stock +
-                ", categoryName='" + categoryName + '\'' +
-                '}';
-    }
 }

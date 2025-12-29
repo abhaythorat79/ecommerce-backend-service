@@ -27,12 +27,4 @@ public class PaymentRequest {
 
     public PaymentRequest() {
     }
-
-    @Override
-    public String toString() {
-        return "PaymentRequest{" +
-                "orderId=" + orderId +
-                ", amount=" + amount +
-                '}';
-    }
 }
